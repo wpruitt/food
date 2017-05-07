@@ -28,8 +28,23 @@ var petFood = (function(orgPetFood){
 				}
 			}
 		}
-		else {
-			console.log("JSON data not validS")
+		else if (Object.keys(foodType)[0] === "cat_brands"){
+			for (var i = 0; i < foodType.cat_brands.length; i++){
+				brands[i] = foodType.cat_brands[i]
+				console.log(brands[0].types)
+				for (var x = 0; x < brands[i].types.length; x++){
+					console.log(brands[i].types[x])
+					// console.log(brands[i].types[x].volumes.lenth)
+					for (var y = 0; y < brands[i].types[x].volumes.length; y++){
+						console.log(brands[i].types[x].volumes[y].name)
+						console.log(brands[i].types[x].volumes[y].price)
+						catFoods.innerHTML += `<li class="productCard">
+													<h4>${brands[i].name}</h4
+													<h5>${brands[i].types[x].type}</h5>
+													<p>Name: ${brands[i].types[x].volumes[y].name}<br>Price: ${brands[i].types[x].volumes[y].price}<p>`
+					}
+				}
+			}
 		}
 	}
 	return orgPetFood

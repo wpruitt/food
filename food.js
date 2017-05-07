@@ -7,9 +7,7 @@ var petFood = (function(orgpetFood){
 		loadDF = new XMLHttpRequest();
 		loadDF.addEventListener("load", function(){
 			dogFood = JSON.parse(this.responseText);
-			console.log("dogFood", dogFood.dog_brands[0].types[0].volumes[0].price)
 			callbackFunction(dogFood)
-			console.log(dogFood.dog_brands[0].types[1].volumes[1].price)
 		});
 		loadDF.open("GET", "petfood.json");
 		loadDF.send();
